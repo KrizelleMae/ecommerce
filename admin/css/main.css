@@ -1,0 +1,11 @@
+.main {
+   margin-top: 120px;
+}
+
+* {
+   font-family: 'Arial';
+}
+
+.active-btn {
+   background-color: black;
+}
