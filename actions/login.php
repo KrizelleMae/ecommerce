@@ -25,14 +25,15 @@
                     $_SESSION['email'] = $row["email"];
                     $_SESSION['name'] = $row["name"];
                     $_SESSION['role'] = $row["role"];
+                      $_SESSION['contact'] = $row["contact"];
 
-                    header("location: ../pages/user_page.php");
+                    header("location: ../user_page.php");
                 }
             }
   
         } else {
             echo '<script>alert("Invalid email or password.");</script>';
-            echo '<script>window.location="../pages/login.php"</script>';
+            echo '<script>window.location="../login.php"</script>';
         }
 
        

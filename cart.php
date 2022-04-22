@@ -14,11 +14,11 @@ $userid = $_SESSION['id'];
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <link rel="stylesheet" href="../css/all.css" />
+      <link rel="stylesheet" href="./css/all.css" />
 
       <title>My Cart</title>
       <?php 
-         include "../includes/links.php";  
+         include "./includes/links.php";  
       ?>
    </head>
    <body class="bg-white">
@@ -36,9 +36,16 @@ $userid = $_SESSION['id'];
                         >Home</a
                      >
                   </li>
-                  <li
+                  <li   
                      class="breadcrumb-item active text-secondary"
                      aria-current="page"
+                     href="<?php 
+                     if($userid == "undefined"){ 
+                        echo './all_products.php';
+                     } else {
+                         echo './user_products.php';
+                     }
+                     ?>"
                   >
                      All products
                   </li>
@@ -68,7 +75,7 @@ $userid = $_SESSION['id'];
                        
                         <?php
 
-                              include '../includes/connection.php';
+                              include './includes/connection.php';
                              
                               // $id = $_SESSION['id'];
 
@@ -79,7 +86,7 @@ $userid = $_SESSION['id'];
                          ?>
                         <tr class="px-0">
                            <td class="pt-3">
-                              <img src="../<?php echo $row['img']; ?>"
+                              <img src="./<?php echo $row['img']; ?>"
                               class="cat alt="..." height="100px">
                            </td>
 
@@ -98,7 +105,7 @@ $userid = $_SESSION['id'];
                               
                                  <a
                                  onclick="return confirm('Are you sure you want to delete this item?');" 
-                                    href="../actions/add_to_cart.php?action=remove&id=<?php echo $row["item_id"]; ?>"
+                                    href="./actions/add_to_cart.php?action=remove&id=<?php echo $row["item_id"]; ?>"
                                     class="btn btn-danger me-5"
                                     >Remove</a
                                  >
@@ -114,7 +121,13 @@ $userid = $_SESSION['id'];
                               <div class="fw-bold pt-3">
                                  <i class="bx bx-chevron-left"></i>
                                  <a
-                                    href="./all_products.php"
+                                  href="<?php 
+                                          if($userid == "undefined"){ 
+                                             echo './all_products.php';
+                                          } else {
+                                             echo './user_products.php';
+                                          }
+                                       ?>"
                                     class="text-decoration-none text-dark"
                                     >Back to Shoppping</a
                                  >

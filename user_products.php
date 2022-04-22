@@ -1,9 +1,7 @@
 <?php 
 // $error = "";
 session_start();
-include "../includes/connection.php"; 
-
-$stat = $_SESSION['id'];
+include "./includes/connection.php";  
 ?>
 
 <!DOCTYPE html>
@@ -13,54 +11,57 @@ $stat = $_SESSION['id'];
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <link rel="stylesheet" href="../css/all.css" />
-      <link rel="stylesheet" href="../css/categories.css" />
+      <link rel="stylesheet" href="./css/all.css" />
+      <link rel="stylesheet" href="./css/categories.css" />
       <title>Furniture</title>
       <?php 
-         include "../includes/links.php";  
+         include "./includes/links.php";  
       ?>
    </head>
    <body class="bg-light">
-      
+      <?php include './navbar.php';?>
       <div class="mt-5"></div>
+       <?php include "./userheader.php";?>
       <div class="container my-5">
          <!-- Breadcrumb -->
          <div class="mt-5 pt-2">
-            <nav class="breadcrumb text-dark fs-6">
+            <nav class="breadcrumb text-secondary fs-6">
                <ol class="breadcrumb">
                   <li class="breadcrumb-item">
-                     <a href="<?php if($stat == 'undefined') {echo './index.php';} else {echo './user_page.php';}?>" class="text-primary text-decoration-none"
-                        >Home</a
+                     <a href="./user_page.php" class=" text-decoration-none"
+                        >Home</a 
                      >
                   </li>
                   <li
-                     class="breadcrumb-item active text-secondary"
-                     aria-current="page"
+                     class="breadcrumb-item active"
+                  
                   >
-                     All products
+                     <a href="#" class="text-primary text-decoration-none"
+                        >All products</a
+                     >
                   </li>
                </ol>
             </nav>
          </div>
 
-         <div class="row container">
+         <div class="row">
             <?php
                $query=mysqli_query($con,"select * from `items` limit 8;");
                while($row=mysqli_fetch_array($query)){
           ?>
 
             <form
-               action="../actions/add_to_cart.php?id=<?php echo $row['id']; ?>"
+               action="./actions/add_to_cart.php?id=<?php echo $row['id']; ?>"
                method="POST"
+               class="row d-flex"
             >
-            
-               <div class="col-md-3 shadow p-4 m-3">
+               <div class="col-md-3 shadow p-4 m-3 ">
                   <a
                      href="./view_product.php?id=<?php echo $row['id'] ?>"
                      class="text-decoration-none"
                   >
                      <img
-                        src="../<?php echo $row['img']?>"
+                        src="./<?php echo $row['img']?>"
                         class="img-responsive w-100 rounded"
                         alt="..."
                      />
@@ -97,7 +98,6 @@ $stat = $_SESSION['id'];
 
                      <div class="row mx-3">
                         <button
-                        disabled
                            type="submit"
                            class="btn btn-outline-secondary rounded-pill col-md py-2 mx-2 my-4"
                            name="add-to-cart"
@@ -114,7 +114,7 @@ $stat = $_SESSION['id'];
                ?>
          </div>
 
-         <? include '../includes/footer.php'; ?>
+         <? include './includes/footer.php'; ?>
       </div>
    </body>
 </html>

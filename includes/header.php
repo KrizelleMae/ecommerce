@@ -1,20 +1,20 @@
 <!--carousel-->
-         <div id="captions" class="carousel slide mt-5 pt-4" data-bs-ride="carousel">
+         <div class="carousel slide mt-5 pt-4" data-bs-ride="carousel">
            
             <div class="carousel-inner">
                <div class="carousel-item active position-relative">
-                  <img src="../images/0.jpeg" class="d-block w-100 img-fluid" alt="...">
+                  <img src="./images/0.jpeg" class="d-block w-100 h-100 img-fluid" alt="...">
                  
                     <div class="position-absolute top-50 start-50 translate-middle">
                          <p class="header-text mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                            <div class="d-flex justify-content-center">
-                              <button class="btn btn-dark rounded-pill px-4 py-2">SHOP NOW <span class="ms-1 bx bx-cart"/></button>
+                              <button class="btn btn-dark rounded-pill px-4 py-2">SHOP NOW <span class="ms-1 bx bx-cart"></button>
                            </div>
                     </div>
 
                </div>
                <div class="carousel-item position-relative">
-                  <img src="../images/1.jpg" class="d-block w-100 img-fluid" alt="...">
+                  <img src="./images/1.jpg" class="d-block w-100 h-100 img-fluid m-0 p-0" alt="...">
                  
                     <div class="position-absolute top-50 start-50 translate-middle">
                          <figure class="text-end bg-light px-2 py-1">

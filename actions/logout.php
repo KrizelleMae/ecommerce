@@ -7,5 +7,5 @@ unset($_SESSION["name"]);
 
 $_SESSION['id'] = "undefined";
 
-header("Location: ../pages/index.php");
+header("Location: ../index.php");
 ?>

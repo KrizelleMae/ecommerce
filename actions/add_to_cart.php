@@ -25,7 +25,7 @@
                   echo (
                         "<script>
                         window.alert('Product added to cart');
-                        window.location.href='../pages/all_products.php';
+                        window.location.href='../user_products.php';
                         </script>"
                   );
             } 
@@ -34,7 +34,7 @@
             echo (
                         "<script>
                         window.alert('Product already added to cart!');
-                        window.location.href='../pages/all_products.php';
+                        window.location.href='../user_products.php';
                         </script>"
                   );
       }
@@ -45,7 +45,7 @@
            echo (
                         "<script>
                         window.alert('item removed from cart');
-                        window.location.href='../pages/cart.php';
+                        window.location.href='../cart.php';
                         </script>"
                   );
         }

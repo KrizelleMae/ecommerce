@@ -34,7 +34,7 @@
                      </li>
 
                      <li class="nav-item dropdown">
-                        <a class="nav-link " href="./all_products.php" >
+                        <a class="nav-link" href="./user_products.php" >
                         ALL PRODUCTS
                         </a>
                         
@@ -67,7 +67,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="#">Profile</a></li>
-                          <li><a class="dropdown-item" href="../actions/logout.php">Logout</a></li>
+                          <li><a class="dropdown-item" href="./actions/logout.php">Logout</a></li>
                           
                         </ul>
                      </li>

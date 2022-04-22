@@ -1,6 +1,6 @@
 <?php 
 
-include '../includes/connection.php';
+include './includes/connection.php';
 // $error = "";
 session_start();
 
@@ -18,11 +18,11 @@ $row = mysqli_fetch_array($query);
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <link rel="stylesheet" href="../css/all.css" />
-      <link rel="stylesheet" href="../css/categories.css" />
+      <link rel="stylesheet" href="./css/all.css" />
+      <link rel="stylesheet" href="./css/categories.css" />
       <title>View Product</title>
       <?php 
-         include "../includes/links.php";  
+         include "./includes/links.php";  
       ?>
    </head>
    <body class="bg-white">
@@ -34,7 +34,13 @@ $row = mysqli_fetch_array($query);
                <ol class="breadcrumb fs-6">
                   <li class="breadcrumb-item">
                      <a
-                        href="./all_products.php"
+                        href="<?php 
+                        if($userid == 'undefined') {
+                           echo './all_products.php';
+                        } else {
+                           echo './user_products.php'; 
+                        }
+                        ?>"
                         class="text-primary text-decoration-none"
                         >All products</a
                      >
@@ -59,14 +65,14 @@ $row = mysqli_fetch_array($query);
                   <div class="carousel-inner">
                      <div class="carousel-item active">
                         <img
-                           src="../<?php echo $row['img']; ?>"
+                           src="./<?php echo $row['img']; ?>"
                            class="d-block w-100"
                            alt="..."
                         />
                      </div>
                      <div class="carousel-item">
                         <img
-                           src="../<?php echo $row['img2']; ?>"
+                           src="./<?php echo $row['img2']; ?>"
                            class="d-block w-100"
                            alt="..."
                         />
@@ -121,7 +127,7 @@ $row = mysqli_fetch_array($query);
 
             <div class="row">
                <form
-                  action="../actions/add_to_cart.php?id=<?php echo $row['id']; ?>"
+                  action="./actions/add_to_cart.php?id=<?php echo $row['id']; ?>"
                   method="POST"
                   class="row"
                >
@@ -172,7 +178,7 @@ $row = mysqli_fetch_array($query);
             <div class="col-sm rounded-pill">
                <a href="" class="text-decoration-none type">
                   <img
-                     src="../<?php echo $item['img']; ?>"
+                     src="./<?php echo $item['img']; ?>"
                      class="cat img-fluid"
                      alt="..."
                   />
