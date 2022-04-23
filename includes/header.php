@@ -8,7 +8,13 @@
                     <div class="position-absolute top-50 start-50 translate-middle">
                          <p class="header-text mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                            <div class="d-flex justify-content-center">
-                              <button class="btn btn-dark rounded-pill px-4 py-2">SHOP NOW <span class="ms-1 bx bx-cart"></button>
+                              <a href="<?php 
+                                          if($userid == "undefined"){ 
+                                             echo './all_products.php';
+                                          } else {
+                                             echo './user_products.php';
+                                          }
+                                       ?>" class="btn btn-dark rounded-pill px-4 py-2">SHOP NOW <span class="ms-1 bx bx-cart"></a>
                            </div>
                     </div>
 

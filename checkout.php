@@ -220,7 +220,7 @@ $userid = $_SESSION['id'];
                 <input
                   type="text"
                   class="form-control"
-                  id="firstName"
+                  id="name"
                   placeholder=""
                   value="<?php echo $_SESSION['name']; ?>"
                   required

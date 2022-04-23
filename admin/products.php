@@ -20,7 +20,7 @@
    <body>
       <?php include "./header.php"; ?>
 
-      <div class="main container">
+      <div class="main ">
          <div class="panel panel-default">
             <div class="panel-heading">
                <h1 class="panel-title lead">Products page</h1>
@@ -38,8 +38,8 @@
                <table class="table mt-3 table-bordered">
                   <thead class="bg-light text-warning">
                      <th>Item ID</th>
-                     <th width="22%">Image samples</th>
-                     <th>Item name</th>
+                     <th width="25%">Image samples</th>
+                     <th width="20%">Item name</th>
                      <th>Price</th>
                      <th>Dimension</th>
                      <th>Category</th>
@@ -52,7 +52,7 @@
                      ?>
                      <tr class="">
                         <th class="pt-4"><?php echo $row['id']?></th>
-                        <td class="">
+                        <td class="" >
                            <img
                               src="../<?php echo $row['img']?>"
                               height="60px"

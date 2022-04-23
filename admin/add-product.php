@@ -20,11 +20,11 @@
    </head>
 
    <body>
-      <div class="container my-5">
+      <div class=" container my-5">
          <div class="page-header mb-5">
             <h1>Add new Item</h1>
             <div class="my-auto">
-               <a href="./products.php">back to products</a>
+               <a href="./products.php"  style="text-decoration: none;"><< Back to products</a>
             </div>
             <hr />
          </div>
@@ -38,12 +38,12 @@
             <div class="row mt-3">
                <div class="form-group col-md-6">
                   <label for="item_name">Item name</label>
-                  <input type="text" class="form-control" name="item_name" />
+                  <input required type="text" class="form-control" name="item_name" />
                </div>
 
                <div class="form-group col-md-6">
                   <label for="price">Item price</label>
-                  <input
+                  <input required
                      type="number"
                      class="form-control"
                      min="1"
@@ -56,14 +56,14 @@
             <div class="mt-3">
                <div class="form-group">
                   <label for="description">Description</label>
-                  <input class="form-control" name="description" />
+                  <input required class="form-control" name="description" />
                </div>
             </div>
 
             <div class="row mt-3">
                <div class="form-group col-md-6">
                   <label for="dimension">Dimension</label>
-                  <input type="text" class="form-control" name="dimension" />
+                  <input required type="text" class="form-control" name="dimension" />
                </div>
 
                <div class="form-group col-md-6">
@@ -81,14 +81,14 @@
             <div class="row mt-3">
                <div class="form-group">
                   <label for="">Display image 1 </label>
-                  <input type="file" class="form-control" name="img" />
+                  <input required type="file" class="form-control" name="img" />
                </div>
             </div>
 
             <div class="row mt-3">
                <div class="form-group">
                   <label for="">Display image 2 </label>
-                  <input type="file" class="form-control" name="img2" />
+                  <input required type="file" class="form-control" name="img2" />
                </div>
             </div>
 
@@ -96,7 +96,7 @@
                <a href="products.php" type="submit" class="btn btn-danger me-2"
                   >CANCEL
                </a>
-               <input
+               <input required
                   type="submit"
                   name="add_product"
                   class="btn btn-success"

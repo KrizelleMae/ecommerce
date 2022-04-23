@@ -3,6 +3,8 @@
 // $error = "";
 session_start();
 
+$userid = $_SESSION['id'];
+
 ?>
 
 <!DOCTYPE html>

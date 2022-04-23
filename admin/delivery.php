@@ -1,5 +1,5 @@
 <?php
- $page ='orders'; 
+ $page ='delivery'; 
  include '../includes/connection.php';
 ?>
 
@@ -9,7 +9,7 @@
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Admin | Orders</title>
+      <title>Admin | Products</title>
 
       <link href="../css/all.css" rel="stylesheet" />
 
@@ -20,13 +20,14 @@
    <body>
       <?php include "./header.php"; ?>
 
-      <div class="main ">
+      <div class="main">
          <div class="panel panel-default">
             <div class="panel-heading">
-               <h1 class="panel-title lead">List of Orders</h1>
+               <h1 class="panel-title lead">List of DELIVERY Orders</h1>
             </div>
 
             <div class="panel-body">
+              
                <table class="table mt-3 table-bordered">
                   <thead class="bg-light text-warning">
                      <th>Order ID</th>
@@ -35,15 +36,14 @@
                      <th>Total</th>
                      <th>Address</th>
                      <th>Date ordered</th>
-                     <th>Method</th>
                      <th>Status</th>
-                     <th width="20%">Action</th>
+                     <th class="text-center">Action</th>
                   </thead>
                   <tbody>
-                    <?php
-                        $query=mysqli_query($con,"select * from order_details where status = 'pending'");
+                     <!-- <?php
+                        $query=mysqli_query($con,"select * from `order_details` where status = 'for delivery' AND method = 'deliver'");
                         while($row=mysqli_fetch_array($query)){
-                     ?> 
+                     ?> -->
                      <tr class="">
                         <th class="pt-4"><?php echo $row['order_id']?></th>
                        
@@ -57,23 +57,18 @@
                               echo date("F j, Y, g:i a", $date_ordered);
                            ?>
                         </td>
-                        <td class="text-center text-uppercase"><?php echo $row['method']?></b></td>
-                        <td class="pt-4 text-center text-uppercase"><b><?php echo $row['status']?></b></td>
-                           <td class="text-center">
+                        <td class="pt-4"><?php echo $row['status']?></td>
+                        <td class="text-center">
                            <a
-                                 href="./view_order.php?userid=<?php echo $row['userid']; ?>"
-                                 class="btn btn-primary py-2"
-                                 title="View"
-                                 ><i class="bx bxs-edit-alt"></i>View</a
-                              >
-                              <a
-                                 class="btn btn-success py-2"
-                                 data-toggle="modal"
-                                 data-target="#update-product"
-                                 title="Edit product"
-                                 ><i class="bx bxs-edit-alt"></i>Confirm order</a
-                              >
-                           </td>
+                              class="btn btn-success py-2"
+                              data-toggle="modal"
+                              data-target="#update-product"
+                              title="Edit product"
+                              ><i class="bx bxs-edit-alt"></i>Accept order</a
+                           >
+
+                         
+                        </td>
                      </tr>
                      <?php
                           } ?>

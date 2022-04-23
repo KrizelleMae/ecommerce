@@ -20,7 +20,7 @@
    <body>
       <?php include "./header.php"; ?>
 
-      <div class="main container">
+      <div class="main ">
          <div class="panel panel-default">
             <div class="panel-heading">
                <h1 class="panel-title lead">Status page</h1>

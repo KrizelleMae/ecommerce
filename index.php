@@ -5,6 +5,7 @@ session_start();
 $page = "home";
 
 $_SESSION['id'] = "undefined";
+$userid = $_SESSION['id'];
 
 
 ?>

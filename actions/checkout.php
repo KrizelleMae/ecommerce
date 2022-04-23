@@ -4,7 +4,7 @@ include ("../includes/connection.php");
 session_start();
 
 
-$name = $_POST['name'];
+$name = $_SESSION['name'];
 $email = $_SESSION['email'];
 $userid = $_SESSION['id'];
 $method = $_POST['method'];
@@ -12,7 +12,7 @@ $contact = $_POST['contact'];
 $house = $_POST['house'];
 $street = $_POST['street'];
 $barangay = $_POST['barangay'];
-$city = $_POST['city'];
+$city = "Zamboanga City";
 
 
 $sum = mysqli_query($con, "SELECT SUM(price) FROM cart WHERE userid = $userid;");
@@ -27,13 +27,13 @@ if($method == 'deliver'){
       $total_pay = $num;
 }
 
-$orders = mysqli_query($con, "insert into order_details(name, method, total, email, contact, house, street, barangay, city, userid) values('$name', '$method', $total_pay, '$address', '$email', $userid); ");
+$orders = mysqli_query($con, "insert into order_details(name, method, total, email, contact, house, street, barangay, city, userid) values('$name', '$method', $total_pay, '$email', '$contact', '$house', '$street', '$barangay', '$city',  $userid); ");
 
 if($orders) {
       echo (
             "<script>
                   window.alert('Your order has been placed!');
-                  window.location.href='./user_page.php';
+                  window.location.href='../user_page.php';
             </script>"
       );
 }else {
