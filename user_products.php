@@ -22,7 +22,7 @@ include "./includes/connection.php";
     <?php include './navbar.php';?>
     <div class="mt-5"></div>
     <?php include "./userheader.php";?>
-    <div class="">
+    <div class="container mb-5">
       <!-- Breadcrumb -->
       <div class="mt-5 pt-2">
         <nav class="breadcrumb text-secondary fs-6">
@@ -46,7 +46,7 @@ include "./includes/connection.php";
                 ?>
 
         <div
-          class="col-md-3 mt-5"
+          class="col-lg-3 mt-5 container"
           style="
             background-color: #eee;
             margin-left: 30px;
@@ -109,9 +109,6 @@ include "./includes/connection.php";
             }
         ?>
       </div>
-
-      <?php
-      include './includes/footer.php'; ?>
     </div>
   </body>
 </html>
