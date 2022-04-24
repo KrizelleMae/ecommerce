@@ -4,7 +4,8 @@
    include '../includes/connection.php';
    $userid = $_GET['userid'];
 
-   $get_details = mysqli_query($con, "select * from order_details where userid = $userid;");
+   $order_id = $_GET['order_id'];
+   $get_details = mysqli_query($con, "select * from order_details where order_id = $order_id;");
 
    while($row = mysqli_fetch_assoc($get_details)){
 
@@ -49,7 +50,7 @@
 
 
         <?php 
-            $sql = mysqli_query($con, "select * from cart INNER JOIN items ON cart.item_id = items.id where cart.userid = $userid");
+            $sql = mysqli_query($con, "select * from orders INNER JOIN items ON orders.item_id = items.id where orders.item_id = items.id AND orders.order_id = $order_id");
             while($item = mysqli_fetch_assoc($sql)){?>
 
         <div

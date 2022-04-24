@@ -106,7 +106,7 @@ $stat = $_SESSION['id'];
                            class="btn btn-outline-secondary rounded-pill col-md py-2 mx-2 my-4"
                            name="add-to-cart"
                         >
-                           ADD TO CART
+                           VIEW PRODUCT
                         </button>
                      </div>
                   </a>

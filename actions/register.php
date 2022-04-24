@@ -17,7 +17,7 @@
 
             if($query) {
                   echo '<script>alert("Register succesful. Log in now!");</script>';
-            echo '<script>window.location="./login.php"</script>';
+            echo '<script>window.location="../login.php"</script>';
             }
 
         } else {

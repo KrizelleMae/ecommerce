@@ -149,6 +149,9 @@ $userid = $_SESSION['id'];
                   &#8369;
                   <?php echo $row['price']; ?>.00</span
                 >
+                   
+                <input type="hidden" name="item_id[]" value=" <?php echo $row['item_id']; ?>">
+                
               </li>
               <?php 
                     

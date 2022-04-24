@@ -4,9 +4,7 @@
    include './includes/connection.php';
    $userid = $_SESSION['id'];
 
-   $get_details = mysqli_query($con, "select * from order_details where userid = $userid limit 1;");
-
-   while($row = mysqli_fetch_assoc($get_details)){
+  
 
   
 
@@ -34,9 +32,15 @@
 
       <hr />
 
-      <div class="container bg-light p-4">
+      <?php 
+       $get_details = mysqli_query($con, "select  * from order_details where userid = $userid;");
+
+      while($row = mysqli_fetch_assoc($get_details)){
+      ?>
+
+      <div class="container bg-light p-4 mb-5">
         <?php 
-            $sql = mysqli_query($con, "select * from cart INNER JOIN items ON cart.item_id = items.id where cart.userid = $userid limit 1");
+            $sql = mysqli_query($con, "select * from orders INNER JOIN items ON orders.item_id = items.id where orders.item_id = items.id limit 1");
             while($item = mysqli_fetch_assoc($sql)){?>
 
         <!-- SMAPLE -->
@@ -50,13 +54,19 @@
                 src="./<?php echo $item['img']; ?>"
                 alt="..."
               />
+             
             </div>
 
             <div class="col-sm-8">
-              <h5 class="fw-bold"><?php echo $item['item_name']?></h5>
+              <!-- <h5 class="fw-bold"><?php echo $item['item_name']?></h5>
               <small>
                 &#8369;
-                <?php echo $item['price']?>.00 x1</small
+                <?php echo $item['price']?>.00 x1</small 
+              >-->
+              <h5 class="fw-bold">ORDER ID: <?php echo $row['order_id']?></h5>
+              <small>
+                &#8369;
+                <?php echo $row['total']?>.00 </small 
               >
               <br />
               <br />
@@ -72,7 +82,7 @@
               
               <br>
               <br>
-                <a href="./view_order.php?userid=<?php echo $row['userid']; ?>"
+                <a href="./view_order.php?order_id=<?php echo $row['order_id']; ?>"
                 class="text-decoration-none text-primary"
                 >See more</a>   
 

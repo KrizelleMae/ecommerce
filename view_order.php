@@ -2,9 +2,12 @@
    session_start();
    $page ='orders'; 
    include './includes/connection.php';
+   $order_id = $_GET['order_id'];
+
+
    $userid = $_SESSION['id'];
 
-   $get_details = mysqli_query($con, "select * from order_details where userid = $userid;");
+   $get_details = mysqli_query($con, "select * from order_details where order_id = $order_id;");
 
    while($row = mysqli_fetch_assoc($get_details)){
 
@@ -59,9 +62,10 @@
   
 
       <div class=" row">
+        
 
       <h5><b>ORDER ID: <?php echo $row['order_id']; ?></b><br>  
-      <b>METHOD: <?php echo $row['method']; ?></b></h5>
+     
 
       <br>
       
@@ -72,9 +76,15 @@
       <h5>Address: <?php echo $row['house']. ", ".$row['street']. ", ".$row['barangay']. ", ".$row['city'] ?></h5>
 
 
+<div class="mt-5">
+   <h5>TOTAL: &#8369;
+                <?php echo $row['total']?>.00 </small 
+              ></h5>
+             <h5 class="text-primary">Method:   <b><?php echo $row['method']; ?></b></h5>
+</div>
 
         <?php 
-            $sql = mysqli_query($con, "select * from cart INNER JOIN items ON cart.item_id = items.id where cart.userid = $userid");
+            $sql = mysqli_query($con, "select * from orders INNER JOIN items ON orders.item_id = items.id where orders.order_id = $order_id");
             while($item = mysqli_fetch_assoc($sql)){?>
 
         <div
@@ -105,9 +115,12 @@
           </div>
         </div>
 
+        
+
         <?php 
             }
          ?>
+         
       </div>
     </div>
   </body>

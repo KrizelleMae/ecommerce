@@ -61,7 +61,7 @@
                         <td class="pt-4 text-center text-uppercase"><b><?php echo $row['status']?></b></td>
                            <td class="text-center">
                            <a
-                                 href="./view_order.php?userid=<?php echo $row['userid']; ?>"
+                                 href="./view_order.php?userid=<?php echo $row['userid']; ?>&order_id=<?php echo $row['order_id']; ?>"
                                  class="btn btn-primary py-2"
                                  title="View"
                                  ><i class="bx bxs-edit-alt"></i>View</a
