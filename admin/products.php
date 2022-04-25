@@ -20,7 +20,7 @@
    <body>
       <?php include "./header.php"; ?>
 
-      <div class="main ">
+      <div class="container" style="margin-top: 100px;">
          <div class="panel panel-default">
             <div class="panel-heading">
                <h1 class="panel-title lead">Products page</h1>

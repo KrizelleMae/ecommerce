@@ -1,5 +1,5 @@
 <?php
- $page ='pickup'; 
+ $page ='delivery'; 
  include '../includes/connection.php';
 ?>
 
@@ -9,7 +9,7 @@
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Admin | Confirmed Orders</title>
+      <title>Admin | Orders</title>
 
       <link href="../css/all.css" rel="stylesheet" />
 
@@ -41,7 +41,7 @@
                   </thead>
                   <tbody>
                     <?php
-                        $query=mysqli_query($con,"select * from order_details where status = 'for delivery' AND method = 'deliver'");
+                        $query=mysqli_query($con,"select * from order_details where status != 'cancelled' AND status != 'pending'");
                         while($row=mysqli_fetch_array($query)){
                      ?> 
                      <tr class="">
@@ -58,7 +58,7 @@
                            ?>
                         </td>
                         <td class="text-center text-uppercase"><?php echo $row['method']?></b></td>
-                        <td class="pt-4 text-center text-uppercase"><b><?php echo $row['status']?></b></td>
+                        <td class="pt-4 text-center text-uppercase"><b> <?php echo $row['status']?></b></td>
                            <td class="text-center">
                            <a
                                  href="./view_order.php?userid=<?php echo $row['userid']; ?>&order_id=<?php echo $row['order_id']; ?>"
@@ -66,13 +66,45 @@
                                  title="View"
                                  ><i class="bx bxs-edit-alt"></i>View</a
                               >
-                              <a
-                                 class="btn btn-success py-2"
-                                 data-toggle="modal"
-                                 data-target="#update-product"
-                                 title="Edit product"
-                                 ><i class="bx bxs-edit-alt"></i>Confirm order</a
-                              >
+
+                              <?php 
+                              
+                              if($row['status'] == 'for pickup') {
+                                 echo 
+                                 "<a onclick='return confirm('Are you sure you want to confirm this order?');' 
+                                    href='./backend/orders.php?action=receive&order_id=".$row['order_id']."&method=pickup'
+                                    class='btn btn-success me-5 text-uppercase'
+                                    >ORDER RECEIVED</a
+                                 >
+                                 ";
+                              } else if ($row['status'] == 'for delivery') {
+                                 echo 
+                                 "<a onclick='return confirm('Are you sure you want to confirm this order?');' 
+                                    href='./backend/orders.php?action=otw&order_id=".$row['order_id']."&method=deliver'
+                                    class='btn btn-default me-5 text-uppercase'
+                                    >ON THE WAY</a
+                                 >
+                                 ";
+                              } else if ($row['status'] == 'preparing') {
+                                 echo 
+                                 " <a onclick='return confirm('Are you sure you want to confirm this order?');' 
+                                    href='./backend/orders.php?action=send&order_id=".$row['order_id']."&method=".$row['method']."'
+                                    class='btn btn-warning me-5 text-uppercase'
+                                    >  ITEM READY  </a
+                                 >
+                                 ";
+                              } else {
+                                  echo 
+                                 " <a onclick='return confirm('Are you sure you want to confirm this order?');' 
+                                    href='./backend/orders.php?action=receive&order_id=".$row['order_id']."&method=".$row['method']."'
+                                    class='btn btn-success me-5 text-uppercase'
+                                    >  ORDER RECEIVED  </a
+                                 >
+                                 ";
+                              }
+                              
+                              ?>
+                             
                            </td>
                      </tr>
                      <?php

@@ -23,17 +23,18 @@ $stat = $_SESSION['id'];
       ?>
    </head>
    <body class="bg-light">
-       <?php include './navbar.php';?>
-      <div class="mt-5"></div>
+      <?php include './navbar.php';?>
+      <div class="mt-5 pt-1"></div>
 
-     
       <div class="container my-5">
          <!-- Breadcrumb -->
-         <div class="mt-5 pt-2">
+         <div class="mt-5 pt-5">
             <nav class="breadcrumb text-dark fs-6">
                <ol class="breadcrumb">
                   <li class="breadcrumb-item">
-                     <a href="<?php if($stat == 'undefined') {echo './index.php';} else {echo './user_page.php';}?>" class="text-primary text-decoration-none"
+                     <a
+                        href="<?php if($stat == 'undefined') {echo './index.php';} else {echo './user_page.php';}?>"
+                        class="text-primary text-decoration-none"
                         >Home</a
                      >
                   </li>
@@ -47,78 +48,45 @@ $stat = $_SESSION['id'];
             </nav>
          </div>
 
-         <div class="row container">
+         <div class="row">
             <?php
-               $query=mysqli_query($con,"select * from `items` limit 8;");
+               include './includes/connection.php';
+
+               $query=mysqli_query($con,"select * from `items`;");
                while($row=mysqli_fetch_array($query)){
           ?>
+            <div class="col-sm-4 col-md col-lg col-xl p-5 rounded">
+               <img
+                  src="./<?php echo $row['img']?>"
+                  class="cat img-fluid w-100 h-50"
+                  alt="..."
+               />
+               <div class="text-center bg-light shadow p-4">
+                  <div class="type fs-5 text-dark text-uppercase fw-bold">
+                     <?php echo $row['item_name']?>
+                  </div>
+                  <div class="text-secondary fs-6">
+                     &#8369;
+                     <?php echo $row['price']?>.00
+                  </div>
 
-            <form
-               action="./actions/add_to_cart.php?id=<?php echo $row['id']; ?>"
-               method="POST"
-            >
-            
-               <div class="col-md-3 shadow p-4 m-3">
-                  <a
-                     href="./view_product.php?id=<?php echo $row['id'] ?>"
-                     class="text-decoration-none"
-                  >
-                     <img
-                        src="./<?php echo $row['img']?>"
-                        class="img-responsive w-100 rounded"
-                        alt="..."
-                     />
-                     <div class="text-center mt-3">
-                        <div class="type fs-5 text-dark text-bolder">
-                           <?php echo $row['item_name']?>
-                        </div>
-                        <small class="text-secondary text-uppercase"
-                           ><?php echo $row['category']?></small
-                        >
-                        <div class="text-dark fw-bolder fs-5 mt-3">
-                           &#8369;
-                           <?php echo $row['price']?>.00
-                        </div>
-                     </div>
-
-                     <input
-                        type="hidden"
-                        name="item_name"
-                        value="<?php echo $row['item_name'];?>"
-                     />
-
-                     <input
-                        type="hidden"
-                        name="img"
-                        value="<?php echo $row['img'];?>"
-                     />
-
-                     <input
-                        type="hidden"
-                        name="price"
-                        value="<?php echo $row['price'];?>"
-                     />
-
-                     <div class="row mx-3">
-                        <button
-                        disabled
-                           type="submit"
-                           class="btn btn-outline-secondary rounded-pill col-md py-2 mx-2 my-4"
-                           name="add-to-cart"
-                        >
-                           VIEW PRODUCT
-                        </button>
-                     </div>
-                  </a>
+                  <div class="d-flex justify-content-center mt-4">
+                     <a
+                        href="./view_product.php?id=<?php echo $row['id'] ?>"
+                        class="text-decoration-none btn w-100 btn-outline-primary mt-0"
+                     >
+                        View product
+                     </a>
+                  </div>
                </div>
-            </form>
+            </div>
 
             <?php
                }
                ?>
          </div>
-
-         <? include './includes/footer.php'; ?>
       </div>
+
+      <? include './includes/footer.php'; ?>
    </body>
 </html>

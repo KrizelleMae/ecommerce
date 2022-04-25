@@ -167,26 +167,38 @@ $row = mysqli_fetch_array($query);
             </div>
          </div>
 
-         <div class="row">
-            <p class="text-center text-secondary py-5 my-5 fs-6 fw-bolder">
+         <div class="row d-flex justify-content-center">
+            <p class="text-center text-dark pt-5 mt-5 fs-6 fw-bolder">
                RELATED PRODUCTS
             </p>
             <?php
-               $query=mysqli_query($con,"select * from `items` where category = '$row[category]' limit 4;");
+               $query=mysqli_query($con,"select * from `items` where id != $id AND category = '$row[category]' limit 3;");
                while($item=mysqli_fetch_array($query)){
           ?>
-            <div class="col-sm rounded-pill">
-               <a href="" class="text-decoration-none type">
-                  <img
-                     src="./<?php echo $item['img']; ?>"
-                     class="cat img-fluid"
-                     alt="..."
-                  />
-                  <div class="text-center mt-3 mb-5">
-                     <div class="type fw-bold fs-5">Beds</div>
-                     <div class="text-secondary">&#8369; 5000</div>
+            <div class="col-sm-4 col-md col-lg col-xl p-5 rounded">
+               <img
+                  src="./<?php echo $item['img']?>"
+                  class="cat img-fluid w-100 h-50"
+                  alt="..."
+               />
+               <div class="text-center bg-light shadow p-4">
+                  <div class="type fs-5 text-dark text-uppercase fw-bold">
+                     <?php echo $item['item_name']?>
                   </div>
-               </a>
+                  <div class="text-secondary fs-6">
+                     &#8369;
+                     <?php echo $item['price']?>.00
+                  </div>
+
+                  <div class="d-flex justify-content-center mt-4">
+                     <a
+                        href="./view_product.php?id=<?php echo $item['id'] ?>"
+                        class="text-decoration-none btn w-100 btn-outline-primary mt-0"
+                     >
+                        View product
+                     </a>
+                  </div>
+               </div>
             </div>
             <?php
           }

@@ -22,7 +22,7 @@ include "./includes/connection.php";
     <?php include './navbar.php';?>
     <div class="mt-5"></div>
     <?php include "./userheader.php";?>
-    <div class="container mb-5">
+    <div class="container mb-5" style="margin-top: 150px;">
       <!-- Breadcrumb -->
       <div class="mt-5 pt-2">
         <nav class="breadcrumb text-secondary fs-6">
@@ -31,7 +31,7 @@ include "./includes/connection.php";
               <a href="./user_page.php" class="text-decoration-none">Home</a>
             </li>
             <li class="breadcrumb-item active">
-              <a href="#" class="text-primary text-decoration-none"
+              <a href="#" class=" text-decoration-none text-secondary"
                 >All products</a
               >
             </li>
@@ -41,69 +41,35 @@ include "./includes/connection.php";
 
       <div class="container row">
         <?php
-            $query=mysqli_query($con,"select * from `items` limit 8;");
+            $query=mysqli_query($con,"select * from `items`;");
             while($row=mysqli_fetch_array($query)){
                 ?>
 
-        <div
-          class="col-lg-3 mt-5 container"
-          style="
-            background-color: #eee;
-            margin-left: 30px;
-            margin-right: 30px;
-            padding: 20px;
-            height: 390px;
-            width: 350px; ;
-          "
-        >
-          <a
-            href="./view_product.php?id=<?php echo $row['id'] ?>"
-            class="text-decoration-none"
-          >
-            <img
-              src="./<?php echo $row['img']?>"
-              class="rounded"
-              alt="..."
-              style="height: 160px; width: 310px"
-            />
-            <div class="text-center mt-3">
-              <div class="type fs-5 text-dark text-bolder">
-                <?php echo $row['item_name']?>
-              </div>
-              <small class="text-secondary text-uppercase"
-                ><?php echo $row['category']?></small
-              >
-              <div class="text-dark fw-bolder fs-5 mt-3">
-                &#8369;
-                <?php echo $row['price']?>.00
-              </div>
+        <div class="col-sm-4 col-md-6 col-lg-4 col-xl p-5 rounded">
+               <img
+                  src="./<?php echo $row['img']?>"
+                  class="cat img-fluid w-100 h-50"
+                  alt="..."
+               />
+               <div class="text-center bg-light shadow p-4">
+                  <div class="type fs-5 text-dark text-uppercase fw-bold">
+                     <?php echo $row['item_name']?>
+                  </div>
+                  <div class="text-secondary fs-6">
+                     &#8369;
+                     <?php echo $row['price']?>.00
+                  </div>
+
+                  <div class="d-flex justify-content-center mt-4">
+                     <a
+                        href="./view_product.php?id=<?php echo $row['id'] ?>"
+                        class="text-decoration-none btn w-100 btn-outline-primary mt-0"
+                     >
+                        View product
+                     </a>
+                  </div>
+               </div>
             </div>
-
-            <input
-              type="hidden"
-              name="item_name"
-              value="<?php echo $row['item_name'];?>"
-            />
-
-            <input type="hidden" name="img" value="<?php echo $row['img'];?>" />
-
-            <input
-              type="hidden"
-              name="price"
-              value="<?php echo $row['price'];?>"
-            />
-
-            <div class="row mx-3">
-              <button
-                type="submit"
-                class="btn btn-outline-secondary rounded-pill col-md py-2 mx-2 my-4"
-                name="add-to-cart"
-              >
-                  VIEW PRODUCT
-              </button>
-            </div>
-          </a>
-        </div>
 
         <?php
             }

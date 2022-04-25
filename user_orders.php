@@ -25,7 +25,7 @@
       ?>
   </head>
   <body>
-    <?php include "./userheader.php";?>
+    <?php include "./userheader.php";?> 
 
     <div class="container" style="margin-top: 150px">
       <h4>My Orders</h4>
@@ -38,7 +38,7 @@
       while($row = mysqli_fetch_assoc($get_details)){
       ?>
 
-      <div class="container bg-light p-4 mb-5">
+      <div class="container bg-light p-5 mb-3">
         <?php 
             $sql = mysqli_query($con, "select * from orders INNER JOIN items ON orders.item_id = items.id where orders.item_id = items.id limit 1");
             while($item = mysqli_fetch_assoc($sql)){?>
@@ -47,17 +47,17 @@
 
        
           <div class="row">
-            <div class="col-sm-2">
-              <img
+            <div class="">
+              <!-- <img
                 class=""
                 style="width: 200px; height: 100px"
                 src="./<?php echo $item['img']; ?>"
                 alt="..."
               />
-             
+              -->
             </div>
 
-            <div class="col-sm-8">
+            <div class="col-sm-5">
               <!-- <h5 class="fw-bold"><?php echo $item['item_name']?></h5>
               <small>
                 &#8369;
@@ -71,14 +71,19 @@
               <br />
               <br />
 
-              <small class="fw-bold">
+             
+            </div>
+
+            <div class="col-sm-5">
+              <small class="pb-4">ORDER STATUS: </small>  <br>
+               <small class="fw-bold text-uppercase mt-3">
                 <i class="bx bx-car"></i>
-                <?php if($row['status'] == 'pending'){ echo "Not yet been reviewed by the seller";}else{ echo $row['status'];}?>
+                <?php if($row['status'] == 'pending'){ echo "Not yet been reviewed by the seller";} else if($row['status'] == 'success') {echo 'ITEM RECEIVED';}else{ echo $row['status'];}?>
               </small>
             </div>
 
             <div class="col">
-              <?php if($row['status'] == 'pending'){ echo "<a href='actions/cancel_order.php?id=$userid' class='btn btn-danger'>Cancel order </a>";}else{ echo $row['status'];}?>
+              <?php if($row['status'] == 'pending'){ echo "<a href='actions/cancel_order.php?order_id=".$row['order_id']."' class='btn btn-danger'>Cancel order </a>";}else{ echo '';}?>
               
               <br>
               <br>

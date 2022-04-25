@@ -37,7 +37,8 @@
       <div class="container row">
 
       <h4><b>ORDER ID: <?php echo $row['order_id']; ?></b><br>  
-      <b>METHOD: <?php echo $row['method']; ?></b></h4>
+      <b>METHOD: <?php echo $row['method']; ?></b><br><br>
+    <b>ORDER STATUS: <?php if($row['status'] == 'success') {echo 'ITEM RECEIVED';} else { echo $row['status'];} ?></b></h4>
 
       <br>
       

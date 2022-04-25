@@ -35,8 +35,8 @@ include '../includes/connection.php';
                          <li class="<?php if($page=='Dashboard'){echo "active-btn";}?>"><a href="index.php">Dashboard</a></li>
                          <li class="<?php if($page=='Products'){echo "active-btn";}?>"><a href="products.php">Products</a></li>
                          <li class="<?php if($page=='orders'){echo "active-btn";}?>"><a href="orders.php">Pending Orders</a></li>
-                         <li class="<?php if($page=='delivery'){echo "active-btn";}?>"><a href="delivery.php">TO DELIVER</a></li>
-                         <li class="<?php if($page=='pickup'){echo "active-btn";}?>"><a href="pickup.php">FOR PICKUP</a></li>
+                         <li class="<?php if($page=='delivery'){echo "active-btn";}?>"><a href="confirmed.php"> ORDERS</a></li>
+                         
                          <li class="<?php if($page=='Status'){echo "active-btn";}?>"><a href="status.php">COMPLETED ORDERS</a></li>
                           <li ><a href="#"></a></li>
                             <li ><a href="#"></a></li>

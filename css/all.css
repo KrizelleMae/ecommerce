@@ -29,3 +29,7 @@
    height: 450px;
    object-fit: contain;
 }
+
+.cat {
+   height: 100px;
+}

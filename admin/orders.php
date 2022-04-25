@@ -66,13 +66,14 @@
                                  title="View"
                                  ><i class="bx bxs-edit-alt"></i>View</a
                               >
+                              
+
                               <a
-                                 class="btn btn-success py-2"
-                                 data-toggle="modal"
-                                 data-target="#update-product"
-                                 title="Edit product"
-                                 ><i class="bx bxs-edit-alt"></i>Confirm order</a
-                              >
+                                 onclick="return confirm('Are you sure you want to confirm this order?');" 
+                                    href="./backend/orders.php?action=confirm_order&order_id=<?php echo $row["order_id"]; ?>&method=<?php echo $row["method"]; ?>"
+                                    class="btn btn-success me-5"
+                                    >Confirm Order</a
+                                 >
                            </td>
                      </tr>
                      <?php

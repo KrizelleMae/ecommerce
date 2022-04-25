@@ -39,7 +39,7 @@ foreach ($item_id as $key => $value) {
             {
                   $id =  $item_id[$key];
 
-                  $order_table = mysqli_query($con, "insert into  orders(order_id, item_id, userid, status) values($order_id, $id, $userid, 'pending')");
+                  $order_table = mysqli_query($con, "insert into  orders(order_id, item_id, userid) values($order_id, $id, $userid)");
                 
             }
            

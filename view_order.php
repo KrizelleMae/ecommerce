@@ -77,8 +77,8 @@
 
 
 <div class="mt-5">
-   <h5>TOTAL: &#8369;
-                <?php echo $row['total']?>.00 </small 
+   <h5>TOTAL: &#8369;                <?php echo $row['total']?>.00 </small 
+
               ></h5>
              <h5 class="text-primary">Method:   <b><?php echo $row['method']; ?></b></h5>
 </div>
