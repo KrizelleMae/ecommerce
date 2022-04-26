@@ -93,13 +93,17 @@
                                     >  ITEM READY  </a
                                  >
                                  ";
-                              } else {
-                                  echo 
+                              } else if ($row['status'] == 'On the way') {
+                                 echo 
                                  " <a onclick='return confirm('Are you sure you want to confirm this order?');' 
-                                    href='./backend/orders.php?action=receive&order_id=".$row['order_id']."&method=".$row['method']."'
-                                    class='btn btn-success me-5 text-uppercase'
+                                    href='./backend/orders.php?action=send&order_id=".$row['order_id']."&method=".$row['method']."'
+                                    class='btn btn-warning me-5 text-uppercase'
                                     >  ORDER RECEIVED  </a
                                  >
+                                 ";
+                              }else {
+                                  echo 
+                                 " 
                                  ";
                               }
                               
