@@ -44,7 +44,7 @@
    
 
 
-     <div class="d-flex justify-content-center mt-5">
+     <div class="d-flex justify-content-center ">
           <a href="<?php if($userid == "undefined"){ echo './all_products.php'; } else { echo './user_products.php'; }?>"><button class="btn btn-outline-dark rounded-pill px-5 see-more" > SEE MORE</button></a>
      </div>
 </div>

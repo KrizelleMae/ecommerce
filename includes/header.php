@@ -6,7 +6,7 @@
                   <img src="./images/0.jpeg" class="d-block w-100 h-100 img-fluid" alt="...">
                  
                     <div class="position-absolute top-50 start-50 translate-middle">
-                         <p class="header-text mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                         <p class="header-text mb-3 title fs-1 fw-bold text-white">JM FURNITURE</p>
                            <div class="d-flex justify-content-center">
                               <a href="<?php 
                                           if($userid == "undefined"){ 

@@ -6,7 +6,7 @@
 
          <nav class="navbar fixed-top navbar-expand-lg bg-white navbar-light shadow-sm p-3 ">
             <div class="container">
-               <a class="navbar-brand" href="#">LOGO Logo</a>
+               <a class="navbar-brand" href="./user_page.php"><img src="./images/logo.png" class="img-responsive w-100 logo" alt=""></a>
                <button
                   class="navbar-toggler"
                   type="button"
