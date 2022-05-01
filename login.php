@@ -12,7 +12,7 @@
 
       <link rel="stylesheet" href="./css/all.css" />
    </head>
-   <body>
+   <body class="bg-light">
       <div class="login-container">
          <div class="shadow-sm">
             <ul class="nav nav-tabs">

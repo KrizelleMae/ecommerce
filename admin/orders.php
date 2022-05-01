@@ -66,7 +66,7 @@
                                  title="View"
                                  ><i class="bx bxs-edit-alt"></i>View</a
                               >
-                              
+                                 
 
                               <a
                                  onclick="return confirm('Are you sure you want to confirm this order?');" 
@@ -74,6 +74,14 @@
                                     class="btn btn-success me-5"
                                     >Confirm Order</a
                                  >
+
+                                 <a
+                                 onclick="return confirm('Are you sure you want to cancel this order?');" 
+                                    href="./backend/orders.php?action=confirm_order&order_id=<?php echo $row["order_id"]; ?>"
+                                    class="btn btn-danger me-5"
+                                    >CANCEL</a
+                                 >
+                              
                            </td>
                      </tr>
                      <?php

@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 200px;
+  margin: 100px;
 }
 
 .carousel-inner {
@@ -47,6 +47,6 @@
 }
 
 .logo {
-  height: 7vh;
+  height: 5vh;
   margin: 0;
 }

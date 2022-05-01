@@ -17,7 +17,6 @@ $userid = $_SESSION['id'];
     <meta name="description" content="" />
     <meta
       name="author"
-      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
     />
     <meta name="generator" content="Jekyll v3.8.5" />
     <title>Checkout Page</title>
@@ -54,7 +53,7 @@ $userid = $_SESSION['id'];
     </style>
   </head>
   <body class="">
-    <form action="./actions/checkout.php" method="post" name="checkout">
+    <form action="./actions/checkout.php" method="post" name="checkout"  enctype="multipart/form-data">
       <div class="container bg-light p-5 my-5">
         <div class="pb-5">
           <h2 class="float-start">Checkout Form</h2>
@@ -215,7 +214,7 @@ $userid = $_SESSION['id'];
             </ul>
           </div>
           <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Billing</h4>
+            <h4 class="mb-3">Billing Details</h4>
 
             <div class="row mt-4">
               <div class="col-md mb-3">
@@ -310,6 +309,20 @@ $userid = $_SESSION['id'];
                   class="form-control"
                   value="Zamboanga City"
                   required
+                />
+              </div>
+            </div>
+
+             <div class="row mt-4">
+              <div class="col-md mb-3">
+                <label class="text-danger">Upload a photo of your valid ID</label>
+                <input
+                 name="identity"
+                  type="file"
+                  class="form-control"
+                  placeholder="Upload your ID"
+                  required
+                 
                 />
               </div>
             </div>

@@ -17,6 +17,9 @@ include '../includes/connection.php';
 
      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+
+     <link rel="stylesheet" href="./css/main.css">
+
 </head>
 <body> <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -28,7 +31,7 @@ include '../includes/connection.php';
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">BRAND</a>
+               <div class="navbar-brand" href="#"><img src="../images/logo-admin.png" class=" logo" alt=""></div>
                </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">

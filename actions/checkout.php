@@ -30,7 +30,22 @@ if($method == 'deliver'){
       $total_pay = $num;
 }
 
-$orders = mysqli_query($con, "insert into order_details(order_id, name, method, total, email, contact, house, street, barangay, city, status, userid) values($order_id, '$name', '$method', $total_pay, '$email', '$contact', '$house', '$street', '$barangay', '$city', 'pending',  $userid); ");
+
+        $random1 = rand(1111,9999);
+        $random2 = rand(1111,9999);
+        $random3 = $random1.$random2;
+        $random3 = md5($random3);
+
+        $id = rand(10000,99999);
+
+        $file_name = $_FILES['identity']['name'];
+        $destination = '../product_img/'.$random3.$file_name;
+        $destination_name = 'product_img/'.$random3.$file_name;
+        move_uploaded_file($_FILES['identity']['tmp_name'],$destination);
+
+      
+
+$orders = mysqli_query($con, "insert into order_details(order_id, name, method, total, email, contact, house, street, barangay, city, identity, status, userid) values($order_id, '$name', '$method', $total_pay, '$email', '$contact', '$house', '$street', '$barangay', '$city', '$destination_name', 'pending',  $userid); ");
 
 
 $item_id = $_POST['item_id'];
